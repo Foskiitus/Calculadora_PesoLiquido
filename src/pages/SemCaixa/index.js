@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, Button, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  TouchableOpacity,
+  Keyboard,
+} from 'react-native';
 import {TextInput} from 'react-native-paper';
 import {Picker} from '@react-native-picker/picker';
 
