@@ -1,18 +1,26 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, Button, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  TouchableOpacity,
+  Keyboard,
+} from 'react-native';
 import {TextInput} from 'react-native-paper';
 import {Picker} from '@react-native-picker/picker';
 
 export default function ComCaixa() {
-  const [pesoBruto, setPesoBruto] = useState();
-  const [pesoCaixa, setPesoCaixa] = useState();
+  const [pesoBruto, setPesoBruto] = useState(0);
+  const [pesoCaixa, setPesoCaixa] = useState(0);
   const [pesoCone, setPesoCone] = useState(0.05);
-  const [quantidadeCones, setQuantidadeCones] = useState();
-  const [resultado, setResultado] = useState('');
+  const [quantidadeCones, setQuantidadeCones] = useState(0);
+  const [resultado, setResultado] = useState(0);
 
   function calcular() {
     const calculo = pesoBruto - pesoCaixa - pesoCone * quantidadeCones;
     setResultado(calculo.toFixed(2));
+    Keyboard.dismiss();
   }
 
   return (
@@ -27,6 +35,7 @@ export default function ComCaixa() {
           required
           onChangeText={setPesoBruto}
           keyboardType="numeric"
+          value={pesoBruto}
         />
         <TextInput
           mode="outlined"
@@ -36,11 +45,11 @@ export default function ComCaixa() {
           required
           onChangeText={setPesoCaixa}
           keyboardType="numeric"
+          value={pesoCaixa}
         />
         <Picker
           selectedValue={pesoCone}
           onValueChange={(itemValue, itemIndex) => setPesoCone(itemValue)}>
-          <Picker.Item label="Escolha um cone" />
           <Picker.Item label="Cone Pequeno 50g" value="0.05" />
           <Picker.Item label="Cone Medio 80g" value="0.08" />
         </Picker>
@@ -52,6 +61,7 @@ export default function ComCaixa() {
           required
           onChangeText={setQuantidadeCones}
           keyboardType="numeric"
+          value={quantidadeCones}
         />
       </View>
       <TouchableOpacity

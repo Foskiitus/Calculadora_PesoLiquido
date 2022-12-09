@@ -4,14 +4,15 @@ import {TextInput} from 'react-native-paper';
 import {Picker} from '@react-native-picker/picker';
 
 export default function SemCaixa() {
-  const [pesoBruto, setPesoBruto] = useState('');
-  const [pesoCone, setPesoCone] = useState();
-  const [quantidadeCones, setQuantidadeCones] = useState('');
-  const [resultado, setResultado] = useState('');
+  const [pesoBruto, setPesoBruto] = useState(0);
+  const [pesoCone, setPesoCone] = useState(0.05);
+  const [quantidadeCones, setQuantidadeCones] = useState(0);
+  const [resultado, setResultado] = useState(0);
 
   function calcular() {
     const calculo = pesoBruto - pesoCone * quantidadeCones;
     setResultado(calculo.toFixed(2));
+    Keyboard.dismiss();
   }
 
   return (
@@ -26,11 +27,11 @@ export default function SemCaixa() {
           required
           onChangeText={setPesoBruto}
           keyboardType="numeric"
+          value={pesoBruto}
         />
         <Picker
           selectedValue={pesoCone}
           onValueChange={(itemValue, itemIndex) => setPesoCone(itemValue)}>
-          <Picker.Item label="Escolha um cone" />
           <Picker.Item label="Cone Pequeno 50g" value="0.05" />
           <Picker.Item label="Cone Medio 80g" value="0.08" />
         </Picker>
@@ -42,6 +43,7 @@ export default function SemCaixa() {
           required
           onChangeText={setQuantidadeCones}
           keyboardType="numeric"
+          value={quantidadeCones}
         />
       </View>
       <TouchableOpacity
