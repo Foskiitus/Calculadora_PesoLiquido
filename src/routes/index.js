@@ -28,7 +28,7 @@ export default function Routes() {
         name="HomeStack"
         component={StackRoutes}
         options={{
-          title: 'RLopes.pt',
+          title: 'Inicio',
         }}
       />
       <Drawer.Screen name="SemCaixa" component={SemCaixa} />

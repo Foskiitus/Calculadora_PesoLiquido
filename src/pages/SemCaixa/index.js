@@ -25,6 +25,9 @@ export default function SemCaixa() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Peso Liquido do Fio Sem a Caixa</Text>
+      <Text style={styles.subtext}>
+        Peso Bruto - Peso de um cone vazio * Quantidade de cones
+      </Text>
       <View style={styles.inputGroup}>
         <TextInput
           mode="outlined"
@@ -73,11 +76,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    color: 'red',
+    color: '#222',
     fontWeight: '500',
     fontSize: 20,
   },
-
+  subtext: {
+    color: '#444',
+    fontWeight: '300',
+    fontSize: 16,
+  },
   inputGroup: {
     flexDirection: 'column',
     width: '100%',
@@ -95,6 +102,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#666',
     borderRadius: 5,
+    marginVertical: 5,
   },
   btnText: {
     color: '#fff',

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
+import {View, Text, StyleSheet, Button, Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Feather from 'react-native-vector-icons/Feather';
 
@@ -21,8 +21,12 @@ export default function Home() {
         <Text>RLopes.pt</Text>
       </View> */}
       <View style={styles.content}>
+        <Image
+          source={require('../../assets/balanca.png')}
+          style={styles.img}
+        />
         <Text style={styles.appTitle}>
-          Uma pequena app para ajudar a calcular pesos
+          Uma pequena app para ajudar a calcular o peso liquido
         </Text>
       </View>
     </View>
@@ -45,9 +49,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    padding: 10,
   },
   appTitle: {
     color: '#333',
     fontSize: 18,
+  },
+  img: {
+    width: 200,
+    height: 400,
   },
 });
