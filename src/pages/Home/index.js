@@ -11,15 +11,6 @@ export default function Home() {
   }
   return (
     <View style={styles.container}>
-      {/* <View style={styles.topNavContainer}>
-        <Feather
-          name="menu"
-          size={30}
-          color="#900"
-          onPress={() => navigation.openDrawer()}
-        />
-        <Text>RLopes.pt</Text>
-      </View> */}
       <View style={styles.content}>
         <Image
           source={require('../../assets/balanca.png')}
